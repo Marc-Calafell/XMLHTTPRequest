@@ -12,10 +12,11 @@
 <h3> GET Sincron </h3>
 
 <script>
+
     var peticio = new XMLHttpRequest();
-    peticio.open("PUT", "http://localhost/XMLHTTPRequest/PUT_Asincron/formulari.php");
-    //peticio.open("PUT", 'http://localhost/XMLHTTPRequest/X-Test/1Mb.txt', false);  //Test 1M
-    //peticio.open("PUT", 'http://localhost/XMLHTTPRequest/X-Test/10Mb', false);  //Test 10M
+    peticio.open("DELETE", "http://localhost/XMLHTTPRequest/DELETE_Asincron/formulari.php");
+    //peticio.open("DELETE", 'http://localhost/XMLHTTPRequest/X-Test/1Mb.txt', false);  //Test 1M
+    //peticio.open("DELETE", 'http://localhost/XMLHTTPRequest/X-Test/10Mb', false);  //Test 10M
     peticio.onreadystatechange = function() {
         if (peticio.readyState == 4) {
             if (peticio.status == 200) {
@@ -26,6 +27,7 @@
         }
     };
     peticio.send();
+
 </script>
 
 

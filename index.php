@@ -13,13 +13,19 @@
 
 <script>
     var peticio = new XMLHttpRequest();
-     peticio.open('GET', 'http://localhost/XMLHTTPRequest/GET_Sincron/index.php', false);
-     //peticio.open('GET', 'http://localhost/XMLHTTPRequest/X-Test/1Mb.txt', false);  //Test 1M
-     //peticio.open('GET', 'http://localhost/XMLHTTPRequest/X-Test/10Mb', false);  //Test 10M
-
+    peticio.open('GET', 'http://localhost/XMLHTTPRequest/GET_Asincron/index.php', true);
+    //peticio.open('GET', 'http://localhost/XMLHTTPRequest/X-Test/1Mb.txt', false);  //Test 1M
+    //peticio.open('GET', 'http://localhost/XMLHTTPRequest/X-Test/10Mb', false);  //Test 10M
+    peticio.onreadystatechange = function (aEvt) {
+        if (peticio.readyState == 4) {
+            if(peticio.status == 200) {
+                console.log(peticio.responseText);
+            }else {
+                console.log("Error loading page\n");
+            }
+        }
+    };
     peticio.send(null);
-    if (peticio.status == 200)
-        console.log(peticio.responseText);
 </script>
 
 

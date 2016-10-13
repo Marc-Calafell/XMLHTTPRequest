@@ -12,20 +12,23 @@
 <h3> GET Sincron </h3>
 
 <script>
+
     var peticio = new XMLHttpRequest();
-    peticio.open('GET', 'http://localhost/XMLHTTPRequest/GET_Asincron/index.php', true);
-    //peticio.open('GET', 'http://localhost/XMLHTTPRequest/X-Test/1Mb.txt', false);  //Test 1M
-    //peticio.open('GET', 'http://localhost/XMLHTTPRequest/X-Test/10Mb', false);  //Test 10M
-    peticio.onreadystatechange = function (aEvt) {
-        if (peticio.readyState == 4) {
-            if(peticio.status == 200) {
-                console.log(peticio.responseText);
-            }else {
+    peticio.open("POST", "http://localhost/XMLHTTPRequest/POST_Asincron/formulari.php");
+    //peticio.open("POST", 'http://localhost/XMLHTTPRequest/X-Test/1Mb.txt', false);  //Test 1M
+    //peticio.open("POST", 'http://localhost/XMLHTTPRequest/X-Test/10Mb', false);  //Test 10M
+    peticio.onreadystatechange = function() {
+        if (this.readyState == 4) {
+            if (this.status == 200) {
+                console.log(this.responseText);
+            } else {
                 console.log("Error loading page\n");
             }
         }
     };
-    peticio.send(null);
+    peticio.send();
+
+
 </script>
 
 
